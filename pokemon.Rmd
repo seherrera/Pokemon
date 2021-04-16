@@ -1,0 +1,38 @@
+---
+title: "Pokemon"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r code}
+
+#Caso 2:r pokemon
+library(datasets)
+library(dplyr)
+wd = setwd("C:/Users/sebah/Desktop/U/mineria de datos/ayudantia 3")
+pk = read.csv("pokemon.csv")
+pk
+#pk123 = filter(pk, pk$Generation %in% c(1, 2, 3))
+#pk123
+attach(pk)
+Speed= boxplot(pk$Speed, horizontal = TRUE)
+stats_Speed = boxplot.stats(pk$Speed)
+Speed
+stats_Speed
+pk1 <- Speed[pk$Speed < 100]
+length(Speed) - length(pk1)
+#boxplot(pk1, horizontal = TRUE)
+Speed_out <- filter(pk, pk$Attack > 100)
+Speed_out
+def = boxplot(HP, horizontal = TRUE)
+stats_HP = boxplot.stats(HP)
+HP
+stats_HP
+pk2 <- HP[HP < 60]
+length(HP) - length(pk2)
+boxplot(pk2, horizontal = TRUE)
+HP_out <- filter(pk, pk$HP > 60 )
+HP_out
+```
